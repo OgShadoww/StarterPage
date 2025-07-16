@@ -1,7 +1,6 @@
 // Terminal logic 
 const terminal = document.querySelector(".terminal");
 
-console.log(terminal);
 
 function createTerminaLine() {
   const line = document.createElement("div");
@@ -19,19 +18,40 @@ function createTerminaLine() {
   line.appendChild(input);
   terminal.appendChild(line);
 
+  terminal.addEventListener("click", () => {
+    input.focus();   
+  });
+
   input.focus();
 
   input.addEventListener("keydown", function (e) {
     if(e.key === "Enter") {
-      console.log("YEAH");
       const value = input.value;
 
+      // Processing all commands
+      processingAnswer(value, );      
+
       // Disable old input
-      input.disabled = true;
-    
+      input.disabled = true;   
       createTerminaLine();
     }
   })
+}
+
+function processingAnswer(value) {
+  if(value === "clear") {
+    terminal.innerHTML = "";
+  }
+  if(value === "whoami") {
+    const answer = document.createElement("span");
+    answer.classList = "terminal-prefix"; 
+    answer.textContent = "user";
+        
+    terminal.appendChild(answer);
+  }
+  if(value === "help") {
+
+  }
 }
 
 createTerminaLine();

@@ -50,6 +50,10 @@ body {
   border-radius: 8px;
 }
 
+.window .active {
+  border: 0.5px #4A4F65 solid; 
+}
+
 .side-window {
   width: 25%;
   height: calc(100% - 20px);
