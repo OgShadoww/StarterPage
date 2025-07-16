@@ -15,9 +15,9 @@ function printOutput(text) {
 }
 
 function processingAnswer(value) {
-  const treamed = value.trim();
+  const trimmed = value.trim();
 
-  switch (treamed) {
+  switch (trimmed) {
     case "clear": 
       terminal.innerHTML = "";
       break;
@@ -46,7 +46,12 @@ function processingAnswer(value) {
         "This page was created by Orest",
         "For everyone who loves terminal vibes and vim motions"
       ].join("\n"));
-      break;     
+      break; 
+
+    default:
+      if(trimmed !== "") {
+        printOutput(`Command not found : ${trimmed}`);
+      }
   }
 }
 
