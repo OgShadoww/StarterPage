@@ -52,6 +52,14 @@ function processingAnswer(value) {
   if(value === "help") {
 
   }
+  if(value === "love") {
+    const answer = document.createElement("span");
+    answer.classList = "terminal-prefix"; 
+    answer.textContent = "Sofiyka is my love";
+        
+    terminal.appendChild(answer);
+
+  }
 }
 
 createTerminaLine();
