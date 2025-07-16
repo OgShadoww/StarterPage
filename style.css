@@ -8,6 +8,8 @@
 body {
   font-family: "JetBrains Mono", monospace;
   background-color: #0D1118;
+  background-image: url("img/background.png");
+  background-size: cover;
   color: #E0E0E8;
   height: 100vh;
   overflow-y: hidden;
@@ -42,6 +44,7 @@ body {
 
 .window {
   background-color: #27243A;
+  opacity: 0.9;
   border: 0.5px #4B4F5B solid;
   padding: 10px;
   border-radius: 8px;
@@ -90,7 +93,6 @@ body {
   font-size: 14px;
   flex: 1;
 }
-
 
 .search {
   width: 100%;
