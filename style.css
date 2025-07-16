@@ -22,7 +22,7 @@ body {
 }
 
 .header {
-  padding: 10px 15px;
+  padding: 10px 50px;
   border-bottom: 1px solid #3E434D;
 }
 
@@ -64,10 +64,36 @@ body {
 
 .terminal {
   width: 100%;
-  height: calc(85% - 20px);
+  height: calc(88% - 20px);
+  padding: 15px;
 }
+
+.terminal-line {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #E0E0E8;
+}
+
+.terminal-prefix {
+  margin-right: 8px;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.terminal-input {
+  font-family: "JetBrains Mono", monospace;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #E0E0E8;
+  font-size: 14px;
+  flex: 1;
+}
+
 
 .search {
   width: 100%;
-  height: calc(15% - 20px);
+  height: calc(12% - 20px);
+  padding: 15px;
 }
