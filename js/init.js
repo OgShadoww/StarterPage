@@ -1,16 +1,17 @@
-import { createTerminaLine } from "./terminal.js";
+import { createTerminalLine } from "./terminal.js";
 import { getUserConfig } from "./config.js";
 
-function applyConfig() {
+function applyconfig() {
   const config = getUserConfig();
 
-  document.body.style.backgroundImage = config.background;
+  document.body.style.backgroundimage = config.background;
+
   let windows = document.querySelectorAll(".window");
   for(let i = 0; i < windows.length; i++) {
     console.log(windows[i]);
-    windows[i].style.backgroundColor = config.windowColor;
+    windows[i].style.backgroundcolor = config.windowcolor;
   }
 }
 
-applyConfig();
-createTerminaLine();
+applyconfig();
+createTerminalLine();

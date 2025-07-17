@@ -1,4 +1,4 @@
-import { setConfig } from "./config.js";
+import { getUserConfig, setConfig } from "./config.js";
 
 // Terminal logic 
 const terminal = document.querySelector(".terminal");
@@ -6,24 +6,44 @@ const terminal = document.querySelector(".terminal");
 // Background types
 const backgroundsName = ["background1.png", "background2.png", "background3.png"];
 
-// All commands
-const commands = [
+// All commands for help command
+const helpMessages = [
   "  help        -  Show this message",
   "  clear       -  Clear terminal",
   "  whoami      -  Current user",
   "  about       -  About this project",
   "  background  -  Show backgrounds",
-];
+]
 
-// Check for height of terminal
-function trimTerminalLines(maxLines = 10) {
-  const lines = terminal.querySelectorAll(".terminal-input, .background-var, .terminal-output");
-  
-  console.log(lines.length);
-  if(lines.length > maxLines) {
+const commandHandler = {
+  clear: () => {
     terminal.innerHTML = '';
-    printOutput("Terminal was clear");
-    createTerminaLine();
+  },
+  help: () => {
+    printOutput([
+      "-----------------------------------",
+      "Available commands:",
+      ...commands,
+      "-----------------------------------",
+    ].join("\n"));
+  },
+  about: () => {
+    printOutput([
+      "This page was created by Orest",
+      "For everyone who loves terminal vibes and vim motions"
+    ].join("\n"));
+  },
+  whoami: () => {
+    printOutput(`${getUserConfig.user}`);
+  },
+  background: () => {
+    printOutput("Available backgrounds:");
+    printOutput("");
+    printImg();
+    printOutput("");
+  },
+  love: () => {
+    printOutput("I love my Sofiyka");
   }
 }
 
@@ -58,54 +78,7 @@ function printOutput(text) {
   terminal.appendChild(outputLine);
 }
 
-function processingAnswer(value) {
-  const trimmed = value.trim();
-
-  switch (trimmed) {
-  case "clear": 
-    terminal.innerHTML = "";
-    break;
-
-  case "whoami":
-    printOutput("user");
-    break;
-
-  case "love":
-    printOutput("Sofiyka is my love ❤️");
-    break;
-
-  case "help":
-    printOutput([
-      "-----------------------------------",
-      "Available commands:",
-      ...commands,
-      "-----------------------------------",
-    ].join("\n"));
-    break;
-
-  case "about":
-    printOutput([
-      "This page was created by Orest",
-      "For everyone who loves terminal vibes and vim motions"
-    ].join("\n"));
-    break;
-
-  case "background":
-    printOutput("Available backgrounds:");
-    printOutput("\n");
-    printImg();
-    printOutput("\n");
-    break;
-
-  default:
-    if (trimmed !== "") {
-      printOutput(`Command not found: ${trimmed}`);
-    }
-  }  
-}
-
-
-export function createTerminaLine() {
+export function createTerminalLine() {
   const line = document.createElement("div");
   line.className = "terminal-line";
 
@@ -121,10 +94,6 @@ export function createTerminaLine() {
   line.appendChild(input);
   terminal.appendChild(line);
 
-  terminal.addEventListener("click", () => {
-    input.focus();   
-  });
-
   input.focus();
 
   input.addEventListener("keydown", function (e) {
@@ -136,10 +105,23 @@ export function createTerminaLine() {
 
       // Disable old input
       input.disabled = true;   
-      createTerminaLine();
+      createTerminalLine();
+      
+      // Scroll to bottom
+      requestAnimationFrame(() => {
+        terminal.scrollTop = terminal.scrollHeight;
+      });
     }
   })
-
-  trimTerminalLines();
 }
 
+terminal.addEventListener("click", () => {
+  const lastInput = terminal.querySelector("input:last-of-type");
+  if (lastInput) lastInput.focus();
+});
+
+function processingAnswer(value) {
+  const trimmed = value.trim();
+
+  commandHandler[trimmed]();
+}
