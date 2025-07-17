@@ -1,20 +1,10 @@
 import { getUserConfig, setConfig } from "./config.js";
+import { backgroundsName, helpMessages, windowColor } from "./variables.js";
 
 // Terminal logic 
 const terminal = document.querySelector(".terminal");
 
-// Background types
-const backgroundsName = ["background1.png", "background2.png", "background3.png"];
-
-// All commands for help command
-const helpMessages = [
-  "  help        -  Show this message",
-  "  clear       -  Clear terminal",
-  "  whoami      -  Current user",
-  "  about       -  About this project",
-  "  background  -  Show backgrounds",
-]
-
+// Terminal commands
 const commandHandler = {
   clear: () => {
     terminal.innerHTML = '';
@@ -23,7 +13,7 @@ const commandHandler = {
     printOutput([
       "-----------------------------------",
       "Available commands:",
-      ...commands,
+      ...helpMessages,
       "-----------------------------------",
     ].join("\n"));
   },
@@ -34,7 +24,7 @@ const commandHandler = {
     ].join("\n"));
   },
   whoami: () => {
-    printOutput(`${getUserConfig.user}`);
+    printOutput(`${getUserConfig().user}`);
   },
   background: () => {
     printOutput("Available backgrounds:");
@@ -58,7 +48,7 @@ function printImg() {
     img.src = `img/${backgroundsName[i]}`;
     img.alt = `${backgroundsName[i]}`;
 
-    img.addEventListener("click", e => {
+    img.addEventListener("click", () => {
       setConfig("background", `url(img/${backgroundsName[i]})`);
       document.body.style.backgroundImage = `url(img/${backgroundsName[i]})`;
     });
@@ -69,7 +59,7 @@ function printImg() {
   terminal.appendChild(container);
 }
 
-
+// Print answer
 function printOutput(text) {
   const outputLine = document.createElement("pre");
   outputLine.className = "terminal-output";
@@ -122,6 +112,12 @@ terminal.addEventListener("click", () => {
 
 function processingAnswer(value) {
   const trimmed = value.trim();
+  if (trimmed === "") return;
 
-  commandHandler[trimmed]();
+  const handler = commandHandler[trimmed];
+  if (handler) {
+    handler();
+  } else {
+    printOutput(`Command not found: ${trimmed}`);
+  }
 }
