@@ -39,14 +39,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 100px;
 }
 
 .window {
   background-color: #27243A;
   opacity: 0.9;
   border: 0.5px #4B4F5B solid;
-  padding: 10px;
+  padding: 30px;
   border-radius: 8px;
 }
 
@@ -56,13 +56,13 @@ body {
 
 .side-window {
   width: 25%;
-  height: calc(100% - 20px);
+  height: calc(100% - 30px);
 }
 
 .center-control {
   height: 100%;
   width: 40%;
-  display: flex;   
+  display: flex; 
   flex-direction: column;
   gap: 20px;
   justify-content:center;
@@ -73,7 +73,7 @@ body {
 
 .terminal {
   width: 100%;
-  height: calc(88% - 30px);
+  height: 88%;
   padding: 15px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -119,6 +119,6 @@ body {
 
 .search {
   width: 100%;
-  height: calc(12% - 20px);
+  height: 12%;
   padding: 15px;
 }
