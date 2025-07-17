@@ -4,12 +4,12 @@ import { getUserConfig } from "./config.js";
 function applyconfig() {
   const config = getUserConfig();
 
-  document.body.style.backgroundimage = config.background;
+  document.body.style.backgroundImage = config.background;
 
   let windows = document.querySelectorAll(".window");
   for(let i = 0; i < windows.length; i++) {
     console.log(windows[i]);
-    windows[i].style.backgroundcolor = config.windowcolor;
+    windows[i].style.background = config.windowcolor;
   }
 }
 
