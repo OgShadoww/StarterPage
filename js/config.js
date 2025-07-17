@@ -1,6 +1,7 @@
 export const DEFAULT_CONFIG = {
   user: "user",
   background: "background2.png",
+  windowColor: "#27243A",
 }
 
 if(!localStorage.getItem("userConfig")) {
@@ -8,7 +9,12 @@ if(!localStorage.getItem("userConfig")) {
 }
 
 export function getUserConfig() {
-  return JSON.parse(localStorage.getItem("userConfig"));
+  try {
+    return JSON.parse(localStorage.getItem("userConfig"));
+  } 
+  catch {
+    return DEFAULT_CONFIG;
+  }
 }
 
 export function setConfig(key, value) {
