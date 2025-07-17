@@ -8,7 +8,7 @@
 body {
   font-family: "JetBrains Mono", monospace;
   background-color: #0D1118;
-  background-image: url("img/background.png");
+  background-image: url("img/background1.png");
   background-size: cover;
   color: #E0E0E8;
   height: 100vh;
@@ -105,6 +105,16 @@ body {
   color: #E0E0E8;
   font-size: 14px;
   flex: 1;
+}
+
+.terminal-img {
+  width: 25%;
+  cursor: pointer;
+}
+
+.background-var {
+  display: flex;
+  gap: 5px;
 }
 
 .search {

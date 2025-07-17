@@ -1,10 +1,36 @@
 // Terminal logic 
 const terminal = document.querySelector(".terminal");
 
+const backgroundsName = ["background1.png", "background2.png", "background3.png"];
+
 const commands = [
-  "clear        -      screen",
-  
+  "  help        -  Show this message",
+  "  clear       -  Clear terminal",
+  "  whoami      -  Current user",
+  "  about       -  About this project",
+  "  background  -  Show backgrounds",
 ];
+
+function printImg() {
+  const container = document.createElement("div");
+  container.className = "background-var";
+
+  for(let i = 0; i < backgroundsName.length; i++) {
+    let img = document.createElement("img");
+    img.className = "terminal-img";
+    img.src = `img/${backgroundsName[i]}`;
+    img.alt = `${backgroundsName[i]}`;
+
+    img.addEventListener("click", () => {
+      console.log("Yeah");
+      document.body.style.backgroundImage = `url(img/${backgroundsName[i]})`;
+    });
+
+    container.appendChild(img);
+  }
+
+  terminal.appendChild(container);
+}
 
 function printOutput(text) {
   const outputLine = document.createElement("pre");
@@ -18,41 +44,46 @@ function processingAnswer(value) {
   const trimmed = value.trim();
 
   switch (trimmed) {
-    case "clear": 
-      terminal.innerHTML = "";
-      break;
+  case "clear": 
+    terminal.innerHTML = "";
+    break;
 
-    case "whoami":
-      printOutput("user");
-      break;
+  case "whoami":
+    printOutput("user");
+    break;
 
-    case "love":
-      printOutput("Sofiyka is my love ❤️");
-      break;
-    case "help":
-      printOutput([
-        "-----------------------------------",
-        "Available commands:",
-        "  help        - Show this message",
-        "  clear       - Clear terminal",
-        "  whoami      - Current user",
-        "  about       - About this project",
-        "-----------------------------------",
-      ].join("\n"));
-      break;
+  case "love":
+    printOutput("Sofiyka is my love ❤️");
+    break;
 
-    case "about":
-      printOutput([
-        "This page was created by Orest",
-        "For everyone who loves terminal vibes and vim motions"
-      ].join("\n"));
-      break; 
+  case "help":
+    printOutput([
+      "-----------------------------------",
+      "Available commands:",
+      ...commands,
+      "-----------------------------------",
+    ].join("\n"));
+    break;
 
-    default:
-      if(trimmed !== "") {
-        printOutput(`Command not found : ${trimmed}`);
-      }
-  }
+  case "about":
+    printOutput([
+      "This page was created by Orest",
+      "For everyone who loves terminal vibes and vim motions"
+    ].join("\n"));
+    break;
+
+  case "background":
+    printOutput("Available backgrounds:");
+    printOutput("\n");
+    printImg();
+    printOutput("\n");
+    break;
+
+  default:
+    if (trimmed !== "") {
+      printOutput(`Command not found: ${trimmed}`);
+    }
+  }  
 }
 
 
