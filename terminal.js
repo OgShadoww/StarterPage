@@ -11,6 +11,17 @@ const commands = [
   "  background  -  Show backgrounds",
 ];
 
+function trimTerminalLines(maxLines = 10) {
+  const lines = terminal.querySelectorAll(".terminal-input, .background-var, .terminal-output");
+  
+  console.log(lines.length);
+  if(lines.length > maxLines) {
+    terminal.innerHTML = '';
+    printOutput("Terminal was clear");
+    createTerminaLine();
+  }
+}
+
 function printImg() {
   const container = document.createElement("div");
   container.className = "background-var";
@@ -121,6 +132,8 @@ function createTerminaLine() {
       createTerminaLine();
     }
   })
+
+  trimTerminalLines();
 }
 
 createTerminaLine();
