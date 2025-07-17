@@ -1,8 +1,12 @@
+import { setConfig } from "./config.js";
+
 // Terminal logic 
 const terminal = document.querySelector(".terminal");
 
+// Background types
 const backgroundsName = ["background1.png", "background2.png", "background3.png"];
 
+// All commands
 const commands = [
   "  help        -  Show this message",
   "  clear       -  Clear terminal",
@@ -11,6 +15,7 @@ const commands = [
   "  background  -  Show backgrounds",
 ];
 
+// Check for height of terminal
 function trimTerminalLines(maxLines = 10) {
   const lines = terminal.querySelectorAll(".terminal-input, .background-var, .terminal-output");
   
@@ -22,6 +27,7 @@ function trimTerminalLines(maxLines = 10) {
   }
 }
 
+// Write to terminal img
 function printImg() {
   const container = document.createElement("div");
   container.className = "background-var";
@@ -32,8 +38,8 @@ function printImg() {
     img.src = `img/${backgroundsName[i]}`;
     img.alt = `${backgroundsName[i]}`;
 
-    img.addEventListener("click", () => {
-      console.log("Yeah");
+    img.addEventListener("click", e => {
+      setConfig("background", `url(img/${backgroundsName[i]})`);
       document.body.style.backgroundImage = `url(img/${backgroundsName[i]})`;
     });
 
@@ -42,6 +48,7 @@ function printImg() {
 
   terminal.appendChild(container);
 }
+
 
 function printOutput(text) {
   const outputLine = document.createElement("pre");
@@ -98,7 +105,7 @@ function processingAnswer(value) {
 }
 
 
-function createTerminaLine() {
+export function createTerminaLine() {
   const line = document.createElement("div");
   line.className = "terminal-line";
 
@@ -136,4 +143,3 @@ function createTerminaLine() {
   trimTerminalLines();
 }
 
-createTerminaLine();
