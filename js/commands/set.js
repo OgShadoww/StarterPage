@@ -1,3 +1,3 @@
-export default function set(terminal) {
+export default function set(args, terminal) {
 
 }
