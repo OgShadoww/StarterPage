@@ -15,16 +15,19 @@ export const commandsList = [
 
 export const availableConfigs = [
   {
-    key: "background",
-    desc: "Sets background image. Example: set background background2.png"
+    key: "bg",
+    values: backgroundsName,
+    desc: "Sets background image"
   },
   {
-    key: "windowColor",
-    desc: "Sets window background color. Example: set windowColor #27243A"
+    key: "user",
+    desc: "Sets user name"
   },
+
   {
-    key: "theme",
-    desc: "Switches theme. Example: set theme dark"
+    key: "wc",
+    values: windowColor,
+    desc: "Sets window background color"
   }
 ];
 

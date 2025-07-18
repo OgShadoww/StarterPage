@@ -1,7 +1,9 @@
+import { applyConfig } from "./init.js";
+
 export const DEFAULT_CONFIG = {
   user: "user",
-  background: "bg2.png",
-  windowColor: "#27243A",
+  bg: "bg2.png",
+  wc: "#27243A",
 }
 
 if(!localStorage.getItem("userConfig")) {
@@ -21,4 +23,6 @@ export function setConfig(key, value) {
   const config = getUserConfig();
   config[key] = value;
   localStorage.setItem("userConfig", JSON.stringify(config));
+
+  applyConfig();
 }

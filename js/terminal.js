@@ -1,4 +1,5 @@
 import { commandHandler } from "./commands/commandMap.js";
+import { getUserConfig } from "./config.js";
 import { printOutput } from "./utils/terminal.js"; 
 
 // Terminal logic 
@@ -32,7 +33,7 @@ export function createTerminalLine() {
 
   const prompt = document.createElement("span");
   prompt.className = "terminal-prefix";
-  prompt.textContent = "user@ilsg ~ %";
+  prompt.textContent = `${getUserConfig().user}@ilsg ~ %`;
 
   const input = document.createElement("input");
   input.className = "terminal-input";
