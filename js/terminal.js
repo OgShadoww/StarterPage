@@ -1,5 +1,5 @@
-import { commandHandler } from "./commands/index.js";
-import printOutput from "./utils/terminal.js";
+import { commandHandler } from "./commands/commandMap.js";
+import { printOutput } from "./utils/terminal.js"; 
 
 // Terminal logic 
 const terminal = document.querySelector(".terminal");

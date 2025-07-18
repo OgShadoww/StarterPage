@@ -1,3 +1,5 @@
+import { backgroundsName } from "../variables.js";
+
 // Print answer
 export function printOutput(text, terminal) {
   const outputLine = document.createElement("pre");

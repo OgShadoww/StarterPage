@@ -1,4 +1,4 @@
-import printOutput from "../utils/terminal";
+import { printOutput } from "../utils/terminal.js";
 
 export default function about(args, terminal) {
   printOutput([

@@ -1,4 +1,4 @@
-import { commandsList } from "../variables";
+import { commandsList } from "../variables.js";
 
 function formatCommandHelp(commands) {
   const maxLength = Math.max(...commands.map(el => el.name.length));

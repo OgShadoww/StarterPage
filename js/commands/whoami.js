@@ -1,5 +1,5 @@
-import printOutput from "../utils/terminal";
-import { getUserConfig } from "../config";
+import { printOutput } from "../utils/terminal.js";
+import { getUserConfig } from "../config.js";
 
 export default function whoami(args, terminal) {
   printOutput(getUserConfig().name, terminal);

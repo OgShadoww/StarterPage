@@ -1,8 +1,8 @@
-import love from "./love"
-import clear from "./clear"
-import help from "./help"
-import set from "./set"
-import whoami from "./whoami" 
+import love from "./love.js"
+import clear from "./clear.js"
+import help from "./help.js"
+import set from "./set.js"
+import whoami from "./whoami.js" 
 
 export const commandHandler = {
   love,
