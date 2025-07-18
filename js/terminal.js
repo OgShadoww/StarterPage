@@ -7,9 +7,10 @@ const terminal = document.querySelector(".terminal");
 
 // Add focus if click on terminal
 terminal.addEventListener("click", () => {
-  const lastInput = terminal.querySelector("input:last-of-type");
+  const lastInput = terminal.querySelector("input:not(:disabled):last-of-type");
   if (lastInput) lastInput.focus();
 });
+
 
 // Process commands
 function processingAnswer(value) {
