@@ -1,8 +1,81 @@
 import { getUserConfig, setConfig } from "./config.js";
-import { backgroundsName, helpMessages, windowColor } from "./variables.js";
+import { backgroundsName, helpMessages } from "./variables.js";
+import printOutput from "./utils/terminal.js";
 
 // Terminal logic 
 const terminal = document.querySelector(".terminal");
+
+terminal.addEventListener("click", () => {
+  const lastInput = terminal.querySelector("input:last-of-type");
+  if (lastInput) lastInput.focus();
+});
+
+// Terminal commands
+const commandHandler = {
+  clear: () => {
+    terminal.innerHTML = '';
+  },
+  help: () => {
+    printOutput([
+      "-----------------------------------",
+      "Available commands:",
+      ...helpMessages,
+      "-----------------------------------",
+    ].join("\n"), terminal);
+  },
+  about: () => {
+    printOutput([
+      "This page was created by Orest",
+      "For everyone who loves terminal vibes and vim motions"
+    ].join("\n"), terminal);
+  },
+  whoami: () => {
+    printOutput(`${getUserConfig().user}`, terminal);
+  },
+  background: () => {
+    printOutput("Available backgrounds:", terminal);
+    printOutput("", terminal);
+    printImg();
+    printOutput("", terminal);
+  },
+  love: () => {
+    printOutput("I love my Sofiyka");
+  },
+  set: (args) => {
+    if(args.length < 2) {
+      printOutput("Usage: set <key> <value>");
+      return;
+    }
+
+    const [key, ...valuePart] = args;
+    const value = valuePart.join(" ");
+
+    setConfig(key, value);
+
+    if (key === "background") {
+      document.body.style.backgroundImage = `url(img/${value})`;
+    }
+
+    printOutput(`Set ${key} to ${value}`);
+  }
+}
+
+
+// Process commands
+function processingAnswer(value) {
+  const trimmed = value.trim();
+  if (trimmed === "") return;
+
+  const [command, ...args] = trimmed.split(/\s+/);
+
+  const handler = commandHandler[command];
+  if (handler) {
+    handler(args);
+  } else {
+    printOutput(`Command not found: ${trimmed}`, terminal);
+  }
+}
+
 
 // Write to terminal img
 function printImg() {
@@ -24,15 +97,6 @@ function printImg() {
   }
 
   terminal.appendChild(container);
-}
-
-// Print answer
-function printOutput(text) {
-  const outputLine = document.createElement("pre");
-  outputLine.className = "terminal-output";
-  outputLine.textContent = text;
-
-  terminal.appendChild(outputLine);
 }
 
 export function createTerminalLine() {
@@ -71,77 +135,4 @@ export function createTerminalLine() {
     }
   })
 }
-
-terminal.addEventListener("click", () => {
-  const lastInput = terminal.querySelector("input:last-of-type");
-  if (lastInput) lastInput.focus();
-});
-
-// Terminal commands
-const commandHandler = {
-  clear: () => {
-    terminal.innerHTML = '';
-  },
-  help: () => {
-    printOutput([
-      "-----------------------------------",
-      "Available commands:",
-      ...helpMessages,
-      "-----------------------------------",
-    ].join("\n"));
-  },
-  about: () => {
-    printOutput([
-      "This page was created by Orest",
-      "For everyone who loves terminal vibes and vim motions"
-    ].join("\n"));
-  },
-  whoami: () => {
-    printOutput(`${getUserConfig().user}`);
-  },
-  background: () => {
-    printOutput("Available backgrounds:");
-    printOutput("");
-    printImg();
-    printOutput("");
-  },
-  love: () => {
-    printOutput("I love my Sofiyka");
-  },
-  set: (args) => {
-    if(args.length < 2) {
-      printOutput("Usage: set <key> <value>");
-      return;
-    }
-
-    const [key, ...valuePart] = args;
-    const value = valuePart.join(" ");
-
-    setConfig(key, value);
-
-    if (key === "background") {
-      document.body.style.backgroundImage = `url(img/${value})`;
-    }
-
-    printOutput(`Set ${key} to ${value}`);
-  }
-}
-
-
-// Process commands
-function processingAnswer(value) {
-  const trimmed = value.trim();
-  if (trimmed === "") return;
-
-  const [command, ...args] = trimmed.split(/\s+/);
-
-  const handler = commandHandler[command];
-  if (handler) {
-    handler(args);
-  } else {
-    printOutput(`Command not found: ${trimmed}`);
-  }
-}
-
-
 
