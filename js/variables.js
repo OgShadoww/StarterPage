@@ -1,5 +1,5 @@
 // Terminal variables
-export const backgroundsName = ["background1.png", "background2.png", "background3.png"];
+export const backgroundsName = ["bg1.png", "bg2.png", "bg3.png"];
 
 export const windowColor = [""]
 
@@ -11,5 +11,20 @@ export const commandsList = [
   { name: "bg", desc: "Show backgrounds" },
   { name: "echo", desc: "Repeat by user" },
   { name: "date", desc: "Show current date" },
+];
+
+export const availableConfigs = [
+  {
+    key: "background",
+    desc: "Sets background image. Example: set background background2.png"
+  },
+  {
+    key: "windowColor",
+    desc: "Sets window background color. Example: set windowColor #27243A"
+  },
+  {
+    key: "theme",
+    desc: "Switches theme. Example: set theme dark"
+  }
 ];
 

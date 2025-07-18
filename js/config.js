@@ -1,6 +1,6 @@
 export const DEFAULT_CONFIG = {
   user: "user",
-  background: "background2.png",
+  background: "bg2.png",
   windowColor: "#27243A",
 }
 
