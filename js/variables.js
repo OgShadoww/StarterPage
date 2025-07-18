@@ -3,11 +3,11 @@ export const backgroundsName = ["background1.png", "background2.png", "backgroun
 
 export const windowColor = [""]
 
-export const helpMessages = [
-  "  help        -  Show this message",
-  "  clear       -  Clear terminal",
-  "  whoami      -  Current user",
-  "  about       -  About this project",
-  "  background  -  Show backgrounds",
-]
+export const commandsList = [
+  { name: "help", desc: "Show all commands"},
+  { name: "clear", desc: "Clear terminal"},
+  { name: "whoami", desc: "Current user" },
+  { name: "about", desc: "About this project" },
+  { name: "background", desc: "Show backgrounds" },
+];
 
