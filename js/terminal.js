@@ -4,39 +4,6 @@ import { backgroundsName, helpMessages, windowColor } from "./variables.js";
 // Terminal logic 
 const terminal = document.querySelector(".terminal");
 
-// Terminal commands
-const commandHandler = {
-  clear: () => {
-    terminal.innerHTML = '';
-  },
-  help: () => {
-    printOutput([
-      "-----------------------------------",
-      "Available commands:",
-      ...helpMessages,
-      "-----------------------------------",
-    ].join("\n"));
-  },
-  about: () => {
-    printOutput([
-      "This page was created by Orest",
-      "For everyone who loves terminal vibes and vim motions"
-    ].join("\n"));
-  },
-  whoami: () => {
-    printOutput(`${getUserConfig().user}`);
-  },
-  background: () => {
-    printOutput("Available backgrounds:");
-    printOutput("");
-    printImg();
-    printOutput("");
-  },
-  love: () => {
-    printOutput("I love my Sofiyka");
-  }
-}
-
 // Write to terminal img
 function printImg() {
   const container = document.createElement("div");
@@ -49,7 +16,7 @@ function printImg() {
     img.alt = `${backgroundsName[i]}`;
 
     img.addEventListener("click", () => {
-      setConfig("background", `url(img/${backgroundsName[i]})`);
+      setConfig("background", backgroundsName[i]); 
       document.body.style.backgroundImage = `url(img/${backgroundsName[i]})`;
     });
 
@@ -110,6 +77,57 @@ terminal.addEventListener("click", () => {
   if (lastInput) lastInput.focus();
 });
 
+// Terminal commands
+const commandHandler = {
+  clear: () => {
+    terminal.innerHTML = '';
+  },
+  help: () => {
+    printOutput([
+      "-----------------------------------",
+      "Available commands:",
+      ...helpMessages,
+      "-----------------------------------",
+    ].join("\n"));
+  },
+  about: () => {
+    printOutput([
+      "This page was created by Orest",
+      "For everyone who loves terminal vibes and vim motions"
+    ].join("\n"));
+  },
+  whoami: () => {
+    printOutput(`${getUserConfig().user}`);
+  },
+  background: () => {
+    printOutput("Available backgrounds:");
+    printOutput("");
+    printImg();
+    printOutput("");
+  },
+  love: () => {
+    printOutput("I love my Sofiyka");
+  },
+  set: (args) => {
+    if(args.length < 2) {
+      printOutput("Usage: set <key> <value>");
+      return;
+    }
+
+    const [key, ...valuePart] = args;
+    const value = valuePart.join(" ");
+
+    setConfig(key, value);
+
+    if (key === "background") {
+      document.body.style.backgroundImage = `url(img/${value})`;
+    }
+
+    printOutput(`Set ${key} to ${value}`);
+  }
+}
+
+
 // Process commands
 function processingAnswer(value) {
   const trimmed = value.trim();
@@ -119,13 +137,11 @@ function processingAnswer(value) {
 
   const handler = commandHandler[command];
   if (handler) {
-    handler();
+    handler(args);
   } else {
     printOutput(`Command not found: ${trimmed}`);
   }
 }
-
-
 
 
 
