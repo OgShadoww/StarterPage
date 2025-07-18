@@ -8,6 +8,8 @@ export const commandsList = [
   { name: "clear", desc: "Clear terminal"},
   { name: "whoami", desc: "Current user" },
   { name: "about", desc: "About this project" },
-  { name: "background", desc: "Show backgrounds" },
+  { name: "bg", desc: "Show backgrounds" },
+  { name: "echo", desc: "Repeat by user" },
+  { name: "date", desc: "Show current date" },
 ];
 

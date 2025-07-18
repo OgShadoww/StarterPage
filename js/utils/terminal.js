@@ -10,7 +10,7 @@ export function printOutput(text, terminal) {
 }
 
 // Write to terminal img
-export function printImg() {
+export function printImg(terminal) {
   const container = document.createElement("div");
   container.className = "background-var";
 

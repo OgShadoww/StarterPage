@@ -10,6 +10,22 @@ terminal.addEventListener("click", () => {
   if (lastInput) lastInput.focus();
 });
 
+// Process commands
+function processingAnswer(value) {
+  const trimmed = value.trim();
+  if (trimmed === "") return;
+
+  const [command, ...args] = trimmed.split(/\s+/);
+
+  const handler = commandHandler[command];
+  if (handler) {
+    handler(args, terminal);
+  } else {
+    printOutput(`Command not found: ${trimmed}`, terminal);
+  }
+}
+
+// Creating new input line
 export function createTerminalLine() {
   const line = document.createElement("div");
   line.className = "terminal-line";
@@ -46,19 +62,3 @@ export function createTerminalLine() {
     }
   })
 }
-
-// Process commands
-function processingAnswer(value) {
-  const trimmed = value.trim();
-  if (trimmed === "") return;
-
-  const [command, ...args] = trimmed.split(/\s+/);
-
-  const handler = commandHandler[command];
-  if (handler) {
-    handler(args, terminal);
-  } else {
-    printOutput(`Command not found: ${trimmed}`, terminal);
-  }
-}
-
