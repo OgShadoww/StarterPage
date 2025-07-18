@@ -110,14 +110,22 @@ terminal.addEventListener("click", () => {
   if (lastInput) lastInput.focus();
 });
 
+// Process commands
 function processingAnswer(value) {
   const trimmed = value.trim();
   if (trimmed === "") return;
 
-  const handler = commandHandler[trimmed];
+  const [command, ...args] = trimmed.split(/\s+/);
+
+  const handler = commandHandler[command];
   if (handler) {
     handler();
   } else {
     printOutput(`Command not found: ${trimmed}`);
   }
 }
+
+
+
+
+
