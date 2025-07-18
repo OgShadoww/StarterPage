@@ -132,4 +132,7 @@ body {
   .center-control {
     width: 100%;
   }
+  .terminal {
+    height: 300px;
+  }
 }
