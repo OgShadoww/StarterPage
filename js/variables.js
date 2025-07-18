@@ -11,6 +11,7 @@ export const commandsList = [
   { name: "bg", desc: "Show backgrounds" },
   { name: "echo", desc: "Repeat by user" },
   { name: "date", desc: "Show current date" },
+  { name: "set", desc: "Change configuration" },
 ];
 
 export const availableConfigs = [

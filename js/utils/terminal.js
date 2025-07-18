@@ -1,5 +1,8 @@
 import { backgroundsName } from "../variables.js";
 
+let history = [];
+let historyIndex = -1;
+
 // Print answer
 export function printOutput(text, terminal) {
   const outputLine = document.createElement("pre");
@@ -32,4 +35,30 @@ export function printImg(terminal) {
   }
 
   terminal.appendChild(container);
+}
+
+export function addToHistory(command) {
+  if(!command.trim()) return;
+  history.push(command);
+  historyIndex = history.length;
+}
+
+export function getPrevCommand() {
+  if(historyIndex > 0) {
+    historyIndex--;
+    return history[historyIndex];
+  }
+
+  return null;
+}
+
+export function getNextCommand() {
+  if(historyIndex < history.length - 1) {
+    historyIndex += 1;
+    return history[historyIndex];
+  } 
+  else {
+    historyIndex = history.length;
+    return "";
+  }
 }

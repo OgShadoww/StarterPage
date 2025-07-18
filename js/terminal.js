@@ -1,6 +1,6 @@
 import { commandHandler } from "./commands/commandMap.js";
 import { getUserConfig } from "./config.js";
-import { printOutput } from "./utils/terminal.js"; 
+import { printOutput, addToHistory, getNextCommand, getPrevCommand } from "./utils/terminal.js"; 
 
 // Terminal logic 
 const terminal = document.querySelector(".terminal");
@@ -49,6 +49,7 @@ export function createTerminalLine() {
   input.addEventListener("keydown", function (e) {
     if(e.key === "Enter") {
       const value = input.value;
+      addToHistory(value);
 
       // Processing all commands
       processingAnswer(value);
@@ -62,5 +63,35 @@ export function createTerminalLine() {
         terminal.scrollTop = terminal.scrollHeight;
       });
     }
+    if (e.key === "ArrowUp") {
+      const prev = getPrevCommand();
+      if (prev != null) {
+        input.value = prev;
+
+        input.focus();
+        requestAnimationFrame(() => {
+          input.setSelectionRange(input.value.length, input.value.length);
+        });
+      }
+    }
+    if (e.key === "ArrowDown") {
+      const next = getNextCommand();
+      input.value = next;
+
+      input.focus();
+      requestAnimationFrame(() => {
+        input.setSelectionRange(input.value.length, input.value.length);
+      });
+    }  
   })
 }
+
+
+
+
+
+
+
+
+
+
