@@ -26,7 +26,7 @@ export function printImg(terminal) {
 
     let img = document.createElement("img");
     img.className = "terminal-img";
-    img.src = `img/${backgroundsName[i]}`;
+    img.src = `img/backgrounds/${backgroundsName[i]}`;
     img.alt = `${backgroundsName[i]}`;
 
     imgContainer.appendChild(img);
