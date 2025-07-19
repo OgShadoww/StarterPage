@@ -5,6 +5,11 @@
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: #E0E0E8;
+}
+
 body {
   font-family: "JetBrains Mono", monospace;
   background-image: url("");
@@ -142,6 +147,41 @@ body {
   cursor: pointer;
   color: #B2D7F9;
   text-decoration: underline;
+}
+
+.bookmarks {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.bookmark-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.bookmark-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #4A4F65;
+  box-shadow: 0 0 8px 4px #211919;
+  border-radius: 8px;
+  width: 100px;
+  height: 100px;
+}
+
+.bookmark-img {
+  width: 50px;
+}
+
+.bookmark-name {
+  font-size: 15px;
 }
 
 @media(max-width : 700px) {
