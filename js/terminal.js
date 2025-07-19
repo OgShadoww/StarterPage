@@ -4,6 +4,7 @@ import { printOutput, addToHistory, getNextCommand, getPrevCommand } from "./uti
 
 // Terminal logic 
 const terminal = document.querySelector(".terminal");
+let firstTime = true;
 
 // Add focus if click on terminal
 terminal.addEventListener("click", () => {
@@ -29,6 +30,11 @@ function processingAnswer(value) {
 
 // Creating new input line
 export function createTerminalLine() {
+  if(firstTime) {
+    printOutput("Write help to see commands", terminal);
+    firstTime = false;
+  }
+
   const line = document.createElement("div");
   line.className = "terminal-line";
 

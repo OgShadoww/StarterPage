@@ -19,6 +19,11 @@ export function getUserConfig() {
   }
 }
 
+export function resetConfig() {
+  localStorage.setItem("userConfig", JSON.stringify(DEFAULT_CONFIG));
+  applyConfig();
+}
+
 export function setConfig(key, value) {
   const config = getUserConfig();
   config[key] = value;

@@ -1,8 +1,6 @@
 // Terminal variables
 export const backgroundsName = ["bg1.png", "bg2.png", "bg3.png"];
 
-export const windowColor = [""]
-
 export const commandsList = [
   { name: "help", desc: "Show all commands"},
   { name: "clear", desc: "Clear terminal"},
@@ -12,6 +10,7 @@ export const commandsList = [
   { name: "echo", desc: "Repeat by user" },
   { name: "date", desc: "Show current date" },
   { name: "set", desc: "Change configuration" },
+  { name: "reset", desc: "Reset configuration to default" },
 ];
 
 export const availableConfigs = [
@@ -27,7 +26,6 @@ export const availableConfigs = [
 
   {
     key: "wc",
-    values: windowColor,
     desc: "Sets window background color"
   }
 ];

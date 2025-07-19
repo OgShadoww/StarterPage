@@ -7,6 +7,7 @@ import about from "./about.js"
 import bg from "./bg.js"
 import echo from "./echo.js"
 import date from "./date.js"
+import { reset } from "./reset.js"
 
 export const commandHandler = {
   love,
@@ -17,5 +18,6 @@ export const commandHandler = {
   about,
   bg,
   echo,
-  date
+  date,
+  reset
 }
