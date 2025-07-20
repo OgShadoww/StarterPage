@@ -1,6 +1,6 @@
 const widget = document.querySelector(".widget");
 const widgetContent = document.querySelector(".widget-content");
-const widgetInput = document.querySelector(".widget .terminal-input");
+const widgetInput = document.querySelector(".terminal-input");
 
 export function createWidgetLine() {  
   const widgetPref = document.createElement("span");

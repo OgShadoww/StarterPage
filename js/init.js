@@ -1,5 +1,4 @@
 import { createTerminalLine } from "./terminal/terminal.js";
-import { createWidgetLine } from "./widget/widget.js";
 import { getUserConfig } from "./config.js";
 
 export function applyConfig() {
@@ -15,4 +14,3 @@ export function applyConfig() {
 
 applyConfig();
 createTerminalLine();
-createWidgetLine();

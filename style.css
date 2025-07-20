@@ -236,6 +236,10 @@ body {
   font-size: 15px;
 }
 
+.popup {
+  display: none;
+}
+
 @media(max-width : 700px) {
   .side-window {
     display: none;
