@@ -1,6 +1,6 @@
 import { printOutput } from "../utils/terminal.js";
-import { setConfig } from "../config.js";
-import { availableConfigs } from "../variables.js";
+import { setConfig } from "../../config.js";
+import { availableConfigs } from "../../variables.js";
 
 export default function set(args, terminal) {
   if(args < 2) {

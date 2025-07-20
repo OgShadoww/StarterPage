@@ -1,4 +1,4 @@
-import { createTerminalLine } from "./terminal.js";
+import { createTerminalLine } from "./terminal/terminal.js";
 import { getUserConfig } from "./config.js";
 
 export function applyConfig() {

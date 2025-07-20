@@ -1,4 +1,4 @@
-import { backgroundsName } from "../variables.js";
+import { backgroundsName } from "../../variables.js";
 
 let history = [];
 let historyIndex = -1;

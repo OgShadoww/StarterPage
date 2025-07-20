@@ -1,4 +1,4 @@
-import { commandsList } from "../variables.js";
+import { commandsList } from "../../variables.js";
 import { printOutput } from "../utils/terminal.js";
 
 function formatCommandHelp(commands) {

@@ -1,5 +1,5 @@
 import { commandHandler } from "./commands/commandMap.js";
-import { getUserConfig } from "./config.js";
+import { getUserConfig } from "../config.js";
 import { printOutput, addToHistory, getNextCommand, getPrevCommand } from "./utils/terminal.js"; 
 
 // Terminal logic 
