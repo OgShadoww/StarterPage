@@ -1,5 +1,5 @@
 // Terminal variables
-export const backgroundsName = ["bg1.png", "bg2.png", "bg3.png", "bg4.png"];
+export const backgroundsName = ["bg1.png", "bg2.png", "bg3.png", "bg4.png", "bg5.png", "bg6.png"];
 
 export const commandsList = [
   { name: "help", desc: "Show all commands"},
@@ -30,3 +30,12 @@ export const availableConfigs = [
   }
 ];
 
+export const whiteTheme = {
+  bg: backgroundsName[3],
+  wc: "#fff",
+}
+
+export const darkTheme = {
+  bg: backgroundsName[0],
+  wc: "#27243A",
+}

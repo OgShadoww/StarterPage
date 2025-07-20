@@ -17,34 +17,48 @@
     </header>
     <div class="main-page">
       <div class="windows">
-        <div class="bookmarks window side-window">
-          <div class="bookmark-container">
-            <a href="https://github.com/" class="bookmark-item">
-              <img src="img/icons/github.png" class="bookmark-img" alt="">
-              <span class="bookmark-name">GitHub</span>
-            </a>
-            <a href="https://www.youtube.com/" class="bookmark-item">
-              <img src="img/icons/youtube.png" class="bookmark-img" alt=""> 
-              <span class="bookmark-name">YouTube</span>
-            </a>
-          </div>  
-          <div class="bookmark-container">
-            <a href="https://www.reddit.com/" class="bookmark-item">
-              <img src="img/icons/reddit.png" class="bookmark-img" alt="">
-              <span class="bookmark-name">Reddit</span>
-            </a>
-            <a href="https://mail.google.com/" class="bookmark-item">
-              <img src="img/icons/gmail.png" class="bookmark-img" alt=""> 
-              <span class="bookmark-name">Gmail</span>
-            </a>
+        <div class="left-windows">
+          <div class="window bookmarks-container side-window">
+            <span class="window-title">
+              Bookmarks
+            </span>
+            <div class="bookmarks">
+              <div class="bookmark-container">
+                <a href="https://github.com/" class="bookmark-item">
+                  <img src="img/icons/github.png" class="bookmark-img" alt="">
+                  <span class="bookmark-name">GitHub</span>
+                </a>
+                <a href="https://www.youtube.com/" class="bookmark-item">
+                  <img src="img/icons/youtube.png" class="bookmark-img" alt=""> 
+                  <span class="bookmark-name">YouTube</span>
+                </a>
+              </div>  
+              <div class="bookmark-container">
+                <a href="https://www.reddit.com/" class="bookmark-item">
+                  <img src="img/icons/reddit.png" class="bookmark-img" alt="">
+                  <span class="bookmark-name">Reddit</span>
+                </a>
+                <a href="https://mail.google.com/" class="bookmark-item">
+                  <img src="img/icons/gmail.png" class="bookmark-img" alt=""> 
+                  <span class="bookmark-name">Gmail</span>
+                </a>
+              </div> 
+              <div class="bookmark-container">
+                <a href="https://chatgpt.com" class="bookmark-item">
+                  <img src="img/icons/chatgpt.png" class="bookmark-img" alt="">
+                  <span class="bookmark-name">ChagGPT</span>
+                </a>
+              </div>
+            </div>
           </div> 
-          <div class="bookmark-container">
-            <a href="https://chatgpt.com" class="bookmark-item">
-              <img src="img/icons/chatgpt.png" class="bookmark-img" alt="">
-              <span class="bookmark-name">ChagGPT</span>
-            </a>
-          </div> 
-        </div> 
+          <div class="side-window window widget">
+            <header class="widget-header">
+              <span class="widget-time">11:03AM</span>
+              <span class="window-title">Widget</span>
+              <span class="widget-date">20.07.25</span>
+            </header>
+          </div>
+        </div>
         <div class="center-control">
           <div class="terminal window">
 
@@ -53,16 +67,17 @@
             <input placeholder="/" type="text" class="terminal-input">
           </div>
         </div>
-        <div class="widgets window side-window">
-
+        <div class="right-windows"> 
+          <div class="window side-window"></div>
+          <div class="window side-window"></div>
         </div>
       </div>
       <span class="popup-open">Edit config</span>
     </div>
-  </div>
+  </div> 
   <div class="popup">
     <div class="popup-body">
-       
+             
     </div>
   </div>
 <script type="module" src="js/init.js"></script>

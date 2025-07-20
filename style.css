@@ -50,8 +50,14 @@ body {
   background-color: #27243A;
   opacity: 0.9;
   border: 0.5px #4B4F5B solid;
-  padding: 30px;
+  padding: 20px;
   border-radius: 8px;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.window-title {
 }
 
 .window .active {
@@ -59,9 +65,45 @@ body {
 }
 
 .side-window {
+  width: 85%;
+}
+
+.right-windows {
   width: 25%;
-  /*height: calc(100% - 30px);*/ 
-  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.right-windows .window {
+  height: 250px;
+}
+
+.left-windows {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 25%;
+}
+
+.widget {
+  height: 75px;
+}
+
+.widget-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.widget-time {
+  font-size: 14px;
+}
+
+.widget-date {
+  font-size: 14px;
 }
 
 .center-control {
@@ -78,13 +120,12 @@ body {
 
 .terminal {
   width: 100%;
-  /*height: 88%;*/ 
   height: 480px;
   padding: 15px;
   overflow-y: auto;
   overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
+  justify-content: start;
+  align-items: start;
 }
 
 .terminal-line {
@@ -118,10 +159,13 @@ body {
 .background-var {
   display: flex;
   gap: 5px;
+  flex-wrap: wrap;
+  justify-content: start;
 }
 
 .img-container {
-  width: 25%;
+  max-width: calc(100% / 5 - 5px);
+  flex: 1 0 calc(100% / 5 - 5px);
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -154,11 +198,19 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   gap: 40px;
-}
+  height: 400px;
+} 
 
 .bookmark-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.bookmarks-container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 20px;
 }
