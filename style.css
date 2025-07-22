@@ -26,6 +26,7 @@ body {
 }
 
 .wrapper {
+  font-family: "JetBrains Mono", monospace;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -68,7 +69,7 @@ body {
 }
 
 .side-window {
-  width: 85%;
+  width: 270px;
 }
 
 .right-windows {
