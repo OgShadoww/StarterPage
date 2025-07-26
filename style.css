@@ -40,7 +40,7 @@ body {
 .main-page {
   flex: 1;
   display: flex;
-  padding:50px;
+  padding:10px;
 }
 
 .windows {
@@ -48,7 +48,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 100px;
+  gap: 10px;
 }
 
 .window {
@@ -70,7 +70,7 @@ body {
 }
 
 .side-window {
-  width: 270px;
+  width: 340px;
 }
 
 .right-windows {
@@ -304,7 +304,7 @@ body {
   background-color: #29263D; 
   border: 1px solid #4B4F5B;
   width: 450px;
-  height: 500px;
+  height: 200px;
   z-index: 100;
   border-radius: 20px;
   display: flex;
